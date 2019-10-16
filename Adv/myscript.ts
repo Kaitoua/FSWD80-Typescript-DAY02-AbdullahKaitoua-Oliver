@@ -1,6 +1,6 @@
 class cars {
    name:string;
-   price:number;
+   price:string;
    img:string;
 
    constructor(name, price,img) {
@@ -13,12 +13,12 @@ class cars {
 
 class extra extends cars{
 	ps:number;
-	model:string;
+	fuel:string;
 
-	constructor(name, price,img,ps, model) {
+	constructor(name, price,img,ps, fuel) {
        super (name, price,img);
        this.ps = ps;
-       this.model = model;
+       this.fuel = fuel;
    }
 
    mydata() {
@@ -29,27 +29,62 @@ class extra extends cars{
                     <h5 class="card-title">${this.name}</h5>
                     <p>Details:</p>
                     <ul class="card-text text-success">
-                        <li>${this.model}</li>
                         <li>${this.ps}</li>
-                        <li>${this.price}</li>
+                        <li class="price"></li>
+                        <li>${this.fuel}</li>
+
                     </ul>
                 </div>
                 <div class="card-footer">
-                    <button class="btn-block btn-info" data-toggle="modal" data-target="#exampleModal">Show Price</button>
+                    <button class="btn-block btn-info btnPrice" data-toggle="modal" data-target="#exampleModal">Show Price</button>
                 </div>
             </div>`;
+
+     
     }
 }
 
-var x1 = new extra("BMW",30000, "img/img1.jpg" ,240,"I8");
+ 
+var x1 = new extra("BMW I8 Coupé","155.000" + "€", "img/img1.jpg" ,374 +" PS","Hybrid");
 x1.mydata();
-var x2 = new extra("BMW", 30000, "img/img2.jpg" ,200,"X5");
+var x2 = new extra("BMW X5", "75.750" + "€", "img/img2.jpg" ,340  +" PS","Benzin");
 x2.mydata();
-var x2 = new extra("BMW", 30000, "img/img3.jpg" ,200,"x3");
-x2.mydata();
-var x2 = new extra("BMW", 30000, "img/img4.jpg" ,200,"x1");
-x2.mydata();
+var x3 = new extra("BMW 8er Cabrio M", "133.000" + "€", "img/img3.jpg" ,625  +" PS","Benzin");
+x3.mydata();
+var x4 = new extra("BMW Z4 Roadstar", "45.079" + "€", "img/img4.jpg" ,340  +" PS","Benzin");
+x4.mydata();
 
+var array = [x1,x2,x3,x4];
+var btn=document.getElementsByClassName("btnPrice");
+
+function showPrice(i){
+  document.getElementsByClassName("price")[i].innerHTML = array[i].price;
+}
+for(let i in array){
+  btn[i].addEventListener("click",()=>{showPrice(i)});
+}
+
+
+// for(let i = 0; i < btn.length;i++){
+// btn[i].addEventListener("click", function(){
+//   btn[i].classList.add("mybtn"+[i]);
+// })
+// document.getElementsByClassName("mybtn")[i].addEventListener("click", function(){
+//   document.getElementsByClassName("price")[i].classList.add("ShowPrice"+[i]);
+// })
+// document.getElementsByClassName("mybtn")[i].addEventListener("click", function(){
+//   document.getElementsByClassName("ShowPrice")[i].style.display = "block";
+// })
+// }
+
+// function print(i){
+
+// }
+
+
+// for (var i; i <= btn.length; i++) {
+//  btn[i].addEventListener("click",()=>{print(i);})
+// }
 
 
 // let howard = new Employee("Howard", "Sales");

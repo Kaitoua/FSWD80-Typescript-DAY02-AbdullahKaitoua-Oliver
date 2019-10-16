@@ -17,8 +17,8 @@
     .hero {
         color: black;
 
-        text-shadow: 2px 2px 5px #42c2f5;
-        padding-top: 10%;
+       /*  text-shadow: 2px 2px 5px #42c2f5; */
+/*         padding-top: 10%; */
     }
 
     li a {
@@ -27,7 +27,14 @@
     }
 
     .myview{
-    	color:#42c2f5!important;
+    	text-shadow: 1px 4px 8px #000000;
+    }
+    
+    #nav-bar{
+    	text-shadow: 1px 2px 2px #ffffff;
+    }
+    .hero > img{
+    	width: 31%;
     }
     </style>
 </head>
@@ -35,11 +42,11 @@
 
 
 
-<body class="container-fluid bg-light">
-    <div class="container-fluid">
+<body class=" bg-light">
+    <div class="">
         <header>
             <nav class="navbar sticky-top navbar-expand-lg navbar-dark" style="background-color: transparent">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" id="nav-bar">
                     <li class="nav-item active">
                         <a class="nav-link" href="index.html">Models</a>
                     </li>
@@ -55,8 +62,8 @@
                 </ul>
             </nav>
             <div class="container w-75 text-center">
-                <h1 class="display-1 hero">BMW</h1>
-                <a class="myview btn text-white" href="#math"><i class="fa fa-clone left"></i>View Models</a>
+                <h1 class="display-1 hero"><a href="#math"><img src="img/logo.jpg" alt="logo" style="width: 37%;"></a></h1>
+                <a class="myview btn text-white" ><i class="fa fa-clone left"></i><p class="display-1">It is an unbelievable experience!</p></a>
             </div>
         </header><!-- /header -->
 

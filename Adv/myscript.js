@@ -21,25 +21,52 @@ var cars = /** @class */ (function () {
 }());
 var extra = /** @class */ (function (_super) {
     __extends(extra, _super);
-    function extra(name, price, img, ps, model) {
+    function extra(name, price, img, ps, fuel) {
         var _this = _super.call(this, name, price, img) || this;
         _this.ps = ps;
-        _this.model = model;
+        _this.fuel = fuel;
         return _this;
     }
     extra.prototype.mydata = function () {
-        document.getElementById('math').innerHTML += " <div class=\"card\">\n                <img class=\"card-img-top\" src=\"" + this.img + "\" alt=\"\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.name + "</h5>\n                    <p>Details:</p>\n                    <ul class=\"card-text text-success\">\n                        <li>" + this.model + "</li>\n                        <li>" + this.ps + "</li>\n                        <li>" + this.price + "</li>\n                    </ul>\n                </div>\n                <div class=\"card-footer\">\n                    <button class=\"btn-block btn-info\" data-toggle=\"modal\" data-target=\"#exampleModal\">Show Price</button>\n                </div>\n            </div>";
+        document.getElementById('math').innerHTML += " <div class=\"card\">\n                <img class=\"card-img-top\" src=\"" + this.img + "\" alt=\"\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.name + "</h5>\n                    <p>Details:</p>\n                    <ul class=\"card-text text-success\">\n                        <li>" + this.ps + "</li>\n                        <li class=\"price\"></li>\n                        <li>" + this.fuel + "</li>\n\n                    </ul>\n                </div>\n                <div class=\"card-footer\">\n                    <button class=\"btn-block btn-info btnPrice\" data-toggle=\"modal\" data-target=\"#exampleModal\">Show Price</button>\n                </div>\n            </div>";
     };
     return extra;
 }(cars));
-var x1 = new extra("BMW", 30000, "img/img1.jpg", 240, "I8");
+var x1 = new extra("BMW I8 Coupé", "155.000" + "€", "img/img1.jpg", 374 + " PS", "Hybrid");
 x1.mydata();
-var x2 = new extra("BMW", 30000, "img/img2.jpg", 200, "X5");
+var x2 = new extra("BMW X5", "75.750" + "€", "img/img2.jpg", 340 + " PS", "Benzin");
 x2.mydata();
-var x2 = new extra("BMW", 30000, "img/img3.jpg", 200, "x3");
-x2.mydata();
-var x2 = new extra("BMW", 30000, "img/img4.jpg", 200, "x1");
-x2.mydata();
+var x3 = new extra("BMW 8er Cabrio M", "133.000" + "€", "img/img3.jpg", 625 + " PS", "Benzin");
+x3.mydata();
+var x4 = new extra("BMW Z4 Roadstar", "45.079" + "€", "img/img4.jpg", 340 + " PS", "Benzin");
+x4.mydata();
+var array = [x1, x2, x3, x4];
+var btn = document.getElementsByClassName("btnPrice");
+function showPrice(i) {
+    document.getElementsByClassName("price")[i].innerHTML = array[i].price;
+}
+var _loop_1 = function (i) {
+    btn[i].addEventListener("click", function () { showPrice(i); });
+};
+for (var i in array) {
+    _loop_1(i);
+}
+// for(let i = 0; i < btn.length;i++){
+// btn[i].addEventListener("click", function(){
+//   btn[i].classList.add("mybtn"+[i]);
+// })
+// document.getElementsByClassName("mybtn")[i].addEventListener("click", function(){
+//   document.getElementsByClassName("price")[i].classList.add("ShowPrice"+[i]);
+// })
+// document.getElementsByClassName("mybtn")[i].addEventListener("click", function(){
+//   document.getElementsByClassName("ShowPrice")[i].style.display = "block";
+// })
+// }
+// function print(i){
+// }
+// for (var i; i <= btn.length; i++) {
+//  btn[i].addEventListener("click",()=>{print(i);})
+// }
 // let howard = new Employee("Howard", "Sales");
 // console.log(howard.getElevatorPitch());
 // console.log(howard.name);
