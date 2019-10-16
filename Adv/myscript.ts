@@ -30,8 +30,8 @@ class extra extends cars{
                     <p>Details:</p>
                     <ul class="card-text text-success">
                         <li>${this.ps}</li>
-                        <li class="price"></li>
                         <li>${this.fuel}</li>
+                        <div class="price"></div>
 
                     </ul>
                 </div>
@@ -58,7 +58,7 @@ var array = [x1,x2,x3,x4];
 var btn=document.getElementsByClassName("btnPrice");
 
 function showPrice(i){
-  document.getElementsByClassName("price")[i].innerHTML = array[i].price;
+  document.getElementsByClassName("price")[i].innerHTML = '<li>'+array[i].price+'</li>';
 }
 for(let i in array){
   btn[i].addEventListener("click",()=>{showPrice(i)});
@@ -82,7 +82,7 @@ for(let i in array){
 // }
 
 
-// for (var i; i <= btn.length; i++) {
+// for (var i; i < btn.length; i++) {
 //  btn[i].addEventListener("click",()=>{print(i);})
 // }
 

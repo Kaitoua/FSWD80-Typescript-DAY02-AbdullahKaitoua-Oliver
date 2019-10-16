@@ -28,7 +28,7 @@ var extra = /** @class */ (function (_super) {
         return _this;
     }
     extra.prototype.mydata = function () {
-        document.getElementById('math').innerHTML += " <div class=\"card\">\n                <img class=\"card-img-top\" src=\"" + this.img + "\" alt=\"\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.name + "</h5>\n                    <p>Details:</p>\n                    <ul class=\"card-text text-success\">\n                        <li>" + this.ps + "</li>\n                        <li class=\"price\"></li>\n                        <li>" + this.fuel + "</li>\n\n                    </ul>\n                </div>\n                <div class=\"card-footer\">\n                    <button class=\"btn-block btn-info btnPrice\" data-toggle=\"modal\" data-target=\"#exampleModal\">Show Price</button>\n                </div>\n            </div>";
+        document.getElementById('math').innerHTML += " <div class=\"card\">\n                <img class=\"card-img-top\" src=\"" + this.img + "\" alt=\"\">\n                <div class=\"card-body\">\n                    <h5 class=\"card-title\">" + this.name + "</h5>\n                    <p>Details:</p>\n                    <ul class=\"card-text text-success\">\n                        <li>" + this.ps + "</li>\n                        <li>" + this.fuel + "</li>\n                        <div class=\"price\"></div>\n\n                    </ul>\n                </div>\n                <div class=\"card-footer\">\n                    <button class=\"btn-block btn-info btnPrice\" data-toggle=\"modal\" data-target=\"#exampleModal\">Show Price</button>\n                </div>\n            </div>";
     };
     return extra;
 }(cars));
@@ -43,7 +43,7 @@ x4.mydata();
 var array = [x1, x2, x3, x4];
 var btn = document.getElementsByClassName("btnPrice");
 function showPrice(i) {
-    document.getElementsByClassName("price")[i].innerHTML = array[i].price;
+    document.getElementsByClassName("price")[i].innerHTML = '<li>' + array[i].price + '</li>';
 }
 var _loop_1 = function (i) {
     btn[i].addEventListener("click", function () { showPrice(i); });
@@ -64,7 +64,7 @@ for (var i in array) {
 // }
 // function print(i){
 // }
-// for (var i; i <= btn.length; i++) {
+// for (var i; i < btn.length; i++) {
 //  btn[i].addEventListener("click",()=>{print(i);})
 // }
 // let howard = new Employee("Howard", "Sales");
